@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 150" width="580">
+    <style>
+    text { font-family: "Cascadia Mono", "JetBrains Mono", Consolas, "DejaVu Sans Mono", monospace; font-size: 11px; }
+    .t { font-size: 12px; font-weight: 700; }
+    .c { font-size: 12px; }
+  </style>
+    <rect x="0.5" y="0.5" width="289" height="149" rx="4" fill="#0c0c0c" stroke="#d8d8d0"
+        stroke-width="0.5" />
+    <rect x="20" y="28" width="250" height="100" fill="none" stroke="#d8d8d0" stroke-width="2" />
+
+    <rect x="32" y="20" width="68" height="16" fill="#0c0c0c" />
+    <text class="t" x="38" y="32" fill="#d8d8d0">Question</text>
+
+    <rect x="30" y="38" width="170" height="4" fill="#d8d8d0" />
+
+    <rect x="30" y="50" width="230" height="18" fill="none" stroke="#d8d8d0" stroke-width="1.5" />
+    <text x="38" y="63" fill="#808078">1</text>
+    <text x="52" y="63" fill="#d8d8d0">[ ]</text>
+    <rect x="88" y="57" width="120" height="4" fill="#808078" />
+
+    <rect x="30" y="72" width="230" height="18" fill="#26261f" stroke="#60a5fa" stroke-width="1.5" />
+    <text x="38" y="85" fill="#60a5fa">2</text>
+    <text x="52" y="85" fill="#d8d8d0">[x]</text>
+    <rect x="88" y="79" width="90" height="4" fill="#d8d8d0" />
+
+    <rect x="30" y="94" width="230" height="18" fill="none" stroke="#d8d8d0" stroke-width="1.5" />
+    <text x="38" y="107" fill="#808078">3</text>
+    <text x="52" y="107" fill="#d8d8d0">[ ]</text>
+    <rect x="88" y="101" width="140" height="4" fill="#808078" />
+
+    <rect x="204" y="120" width="56" height="16" fill="#0c0c0c" />
+    <text class="c" x="210" y="132" fill="#d8d8d0">7 of 42</text>
+</svg>

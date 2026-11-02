@@ -1,0 +1,53 @@
+/* Reset and page-level defaults. */
+
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font:
+    15px/1.5 "Cascadia Mono",
+    "JetBrains Mono",
+    Consolas,
+    "DejaVu Sans Mono",
+    monospace;
+  padding: 16px;
+}
+
+#app {
+  max-width: 920px;
+  margin: 0 auto;
+  min-height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  width: 100%;
+  min-height: 110px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 2px solid var(--line);
+  font: inherit;
+  padding: 8px;
+  resize: vertical;
+}
+
+label {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 8px;
+    font-size: 14px;
+  }
+}

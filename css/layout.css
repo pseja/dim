@@ -1,0 +1,108 @@
+/* Page frame */
+
+.page > .bar,
+.page > .foot {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(920px, calc(100% - 32px));
+  z-index: 2;
+  margin: 0;
+}
+
+.page > .bar {
+  top: 8px;
+}
+
+.page > .foot {
+  bottom: 8px;
+  background: var(--bg);
+  padding: 8px 0 0;
+}
+
+.page > .stage {
+  min-height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 0;
+}
+
+/* Top bar */
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 2px solid var(--line);
+  background: var(--fg);
+  color: var(--bg);
+  padding: 2px 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+/* Footer key hints */
+
+.keys {
+  color: var(--dim);
+  border-top: 2px solid var(--line);
+  padding-top: 6px;
+  margin-top: 14px;
+}
+
+.keys kbd,
+.btn {
+  font: inherit;
+  border: 1px solid var(--line);
+  padding: 0 6px;
+  background: transparent;
+  color: var(--fg);
+}
+
+.act {
+  cursor: pointer;
+}
+
+.act:hover {
+  color: var(--fg);
+}
+
+.act:hover kbd {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Bordered box */
+
+.box {
+  border: 2px solid var(--line);
+  margin-bottom: 12px;
+  position: relative;
+  padding: 14px 14px 12px;
+}
+
+.box > .title {
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background: var(--bg);
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+.box > .title.br {
+  top: auto;
+  bottom: -12px;
+  left: auto;
+  right: 10px;
+  font-weight: normal;
+}
+
+.stage > .box {
+  margin-bottom: 24px;
+}
+
+.stage > .box:last-child {
+  margin-bottom: 0;
+}
