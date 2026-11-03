@@ -22,6 +22,7 @@ function menuView() {
       ["1-9", "start drill"],
       ["S", "shuffle", toggleShuffle],
       ["H", "hint", () => setHint(!showHint)],
+      ["T", "theme", openThemeDialog],
       ["Tab", "move focus"],
     ]),
   );

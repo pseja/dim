@@ -157,3 +157,87 @@ pre.q {
 .progress {
   letter-spacing: -1px;
 }
+
+/* Theme dialog */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+}
+
+.dialog {
+  width: min(720px, 100%);
+  background: var(--bg);
+  border: 2px solid var(--line);
+  padding: 20px 14px 10px;
+}
+
+.dialog .panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.dialog .box {
+  margin-bottom: 0;
+}
+
+.dialog .list {
+  padding: 14px 0 12px;
+}
+
+.dialog .scroll {
+  max-height: min(50vh, 420px);
+  overflow-y: auto;
+}
+
+.dialog .list .row {
+  padding: 0 14px;
+}
+
+.dialog .list .row.cur {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.dialog .list .row.cur .dim {
+  color: inherit;
+}
+
+.dialog .row .dim {
+  width: 5ch;
+}
+
+.dialog .row .name {
+  flex: 1;
+}
+
+.swatches {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.swatches i {
+  width: 10px;
+  height: 10px;
+}
+
+.dialog .preview p {
+  margin: 0 0 8px;
+}
+
+@media (max-width: 600px) {
+  .dialog .panes {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog .scroll {
+    max-height: 30vh;
+  }
+}
