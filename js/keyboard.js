@@ -47,6 +47,12 @@ document.addEventListener("keydown", (event) => {
   )
     return;
 
+  if (themeDialog) return themeKey(event);
+  if (event.key.toLowerCase() === "t" && view !== "drill") {
+    event.preventDefault();
+    return openThemeDialog();
+  }
+
   KEY_HANDLERS[view](event);
 });
 
