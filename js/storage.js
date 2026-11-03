@@ -56,3 +56,32 @@ function saveHint(enabled) {
     localStorage.setItem(HINT_KEY, enabled ? "1" : "0");
   } catch {}
 }
+
+/**
+ * Key for the colour theme in localStorage.
+ */
+const THEME_KEY = STORAGE_KEY + "-theme";
+
+/**
+ * Loads the id of the saved colour theme from localStorage.
+ *
+ * @returns {string} The theme id, or "" for the default theme.
+ */
+function loadTheme() {
+  try {
+    return localStorage.getItem(THEME_KEY) || "";
+  } catch {
+    return "";
+  }
+}
+
+/**
+ * Saves the id of the colour theme to localStorage.
+ *
+ * @param {string} id - The theme id, or "" for the default theme.
+ */
+function saveTheme(id) {
+  try {
+    localStorage.setItem(THEME_KEY, id);
+  } catch {}
+}
