@@ -151,7 +151,7 @@ function toggleOption(index) {
  * Asks for confirmation, then quits the drill and returns to the menu.
  */
 function quitDrill() {
-  if (confirm("Quit this drill?")) showView("menu");
+  openConfirmDialog("Quit this drill?", "quit", () => showView("menu"));
 }
 
 /**

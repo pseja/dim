@@ -228,6 +228,15 @@ pre.q {
   height: 10px;
 }
 
+.dialog.confirm {
+  width: min(420px, 100%);
+}
+
+.dialog.confirm p {
+  margin: 8px 0 4px;
+  overflow-wrap: anywhere;
+}
+
 .dialog .preview p {
   margin: 0 0 8px;
 }
