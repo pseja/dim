@@ -10,13 +10,35 @@ const STORAGE_KEY = "driller-improved";
 const HINT_KEY = STORAGE_KEY + "-hint";
 
 /**
+ * The drill a first-time visitor starts with.
+ */
+const EXAMPLE_DRILL = {
+  name: "Example Drill",
+  questions: [
+    {
+      question: "What is A?",
+      correct: ["A1", "A2"],
+      wrong: ["X1", "X2", "X3"],
+    },
+    {
+      question: "How does B work?",
+      correct: ["B1", "B2", "B3", "B4"],
+      wrong: [],
+    },
+  ],
+};
+
+/**
  * Loads the list of drills from localStorage.
  *
- * @returns {Array} The list of drills, or an empty array if none are found.
+ * @returns {Array} The saved drills, the example drill if nothing was ever saved,
+ * or an empty array on errors.
  */
 function loadDrills() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === null) return [structuredClone(EXAMPLE_DRILL)];
+    return JSON.parse(saved) || [];
   } catch {
     return [];
   }
