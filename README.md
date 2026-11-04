@@ -29,8 +29,10 @@ No build step, no dependencies, no server: plain HTML, CSS, and JavaScript. Chec
 - **Browse while drilling:** go back to already answered questions (read-only) with the arrow keys or `j`/`k`.
 - **Optional hint:** show how many answers are correct, toggled with `H`.
 - **Shuffle:** question order (toggled with `S`) is randomized.
+- **Colour themes:** press `T` to pick a theme in a dialog with a live preview.
+- **Bulk delete:** press `D` on the menu, toggle the drills you no longer want with the number keys or the mouse, and delete them together.
 - **Clickable key hints:** (almost) every shortcut in the footer can also be clicked.
-- **Saved locally:** imported drills and the hint setting are saved in your browser's `localStorage`.
+- **Saved locally:** imported drills, the hint setting, and the chosen theme are saved in your browser's `localStorage`.
 
 ## Usage
 
@@ -64,8 +66,10 @@ Any question with a line starting with `" |"` is rendered in monospace, so you c
 | Screen  | Key               | Action                                |
 | ------- | ----------------- | ------------------------------------- |
 | Menu    | `1-9`             | Start the n-th drill                  |
+|         | `D`               | Delete drills                         |
 |         | `S`               | Toggle question shuffling             |
 |         | `H`               | Toggle the hint                       |
+|         | `T`               | Choose a theme                        |
 | Drill   | `1-9`, `0`        | Toggle an option                      |
 |         | `Space`           | Check, then next (or back to current) |
 |         | `j` `→` / `k` `←` | Next / previous question              |

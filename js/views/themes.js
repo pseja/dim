@@ -115,7 +115,7 @@ function themePreview() {
  * Opens the theme dialog on the applied theme.
  */
 function openThemeDialog() {
-  if (themeDialog) return;
+  if (activeDialog) return;
 
   const index = Math.max(
     0,
@@ -139,22 +139,17 @@ function openThemeDialog() {
     h("span", "title br", `${index + 1} of ${THEME_ENTRIES.length}`),
   );
 
-  const root = h("div", "overlay", null, [
-    h("div", "dialog", null, [
-      h("div", "panes", null, [list, themePreview()]),
-      keyHint([
-        ["j/k", "move"],
-        ["Space", "select", chooseTheme],
-        ["Esc", "cancel", closeThemeDialog],
-      ]),
-    ]),
-  ]);
-  root.onclick = (event) => {
-    if (event.target === root) closeThemeDialog();
-  };
-
-  document.body.appendChild(root);
-  themeDialog = { root, rows, index: -1 };
+  const dialog = openDialog({
+    content: [h("div", "panes", null, [list, themePreview()])],
+    hints: [
+      ["j/k", "move"],
+      ["Space", "select", chooseTheme],
+      ["Esc", "cancel", closeDialog],
+    ],
+    onKey: themeKey,
+    onClose: closeThemeDialog,
+  });
+  themeDialog = { root: dialog.root, rows, index: -1 };
 
   moveTheme(index);
 }
@@ -184,14 +179,13 @@ function moveTheme(index) {
 function chooseTheme() {
   themeId = THEME_ENTRIES[themeDialog.index].id;
   saveTheme(themeId);
-  closeThemeDialog();
+  closeDialog();
 }
 
 /**
- * Closes the dialog and restores the saved theme, unless one was just chosen.
+ * Runs after the dialog closes: restores the saved theme, unless one was just chosen.
  */
 function closeThemeDialog() {
-  themeDialog.root.remove();
   themeDialog = null;
   applyTheme(themeId);
 }
@@ -204,7 +198,6 @@ function closeThemeDialog() {
 function themeKey(event) {
   const key = event.key;
   const index = themeDialog.index;
-  event.preventDefault();
 
   if (isNextKey(key)) moveTheme(index + 1);
   else if (isPrevKey(key)) moveTheme(index - 1);
@@ -213,5 +206,5 @@ function themeKey(event) {
   else if (key === "PageDown") moveTheme(index + 8);
   else if (key === "PageUp") moveTheme(index - 8);
   else if (key === "Enter" || key === " ") chooseTheme();
-  else if (key === "Escape" || key === "q") closeThemeDialog();
+  else if (key === "q") closeDialog();
 }

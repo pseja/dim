@@ -47,7 +47,7 @@ document.addEventListener("keydown", (event) => {
   )
     return;
 
-  if (themeDialog) return themeKey(event);
+  if (activeDialog) return dialogKey(event);
   if (event.key.toLowerCase() === "t" && view !== "drill") {
     event.preventDefault();
     return openThemeDialog();
@@ -80,6 +80,8 @@ function menuKey(event) {
   if (digit >= 0 && drills[digit]) {
     event.preventDefault();
     startDrill(drills[digit].questions, drills[digit].name);
+  } else if (key.toLowerCase() === "d") {
+    openDeleteDialog();
   } else if (key.toLowerCase() === "s") {
     toggleShuffle();
   } else if (key.toLowerCase() === "h") {
