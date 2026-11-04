@@ -50,9 +50,17 @@ pre.q {
   min-width: 1.5ch;
 }
 
+.opt > span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .opt .t {
   flex: 1;
+  flex-shrink: 1;
+  min-width: 0;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .opt .tag {
@@ -198,6 +206,7 @@ pre.q {
 }
 
 .dialog .list .row {
+  box-sizing: border-box;
   padding: 0 14px;
 }
 
@@ -216,6 +225,8 @@ pre.q {
 
 .dialog .row .name {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .swatches {
@@ -230,6 +241,15 @@ pre.q {
 
 .dialog.confirm {
   width: min(420px, 100%);
+}
+
+.dialog.delete {
+  width: min(520px, 100%);
+}
+
+.dialog.delete .opt .t {
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .dialog.confirm p {

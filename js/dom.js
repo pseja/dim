@@ -37,6 +37,30 @@ function button(label, onclick) {
 }
 
 /**
+ * Sets the text of a single-line element, cutting it off with "..." if it does not fit.
+ * The element must be laid out already and clip its overflow.
+ *
+ * @param {HTMLElement} element - The element to fill.
+ * @param {string} text - The full text.
+ */
+function fitText(element, text) {
+  const fits = () => element.scrollWidth <= element.clientWidth;
+
+  element.textContent = text;
+  if (fits()) return;
+
+  let low = 0;
+  let high = text.length;
+  while (low < high) {
+    const mid = Math.ceil((low + high) / 2);
+    element.textContent = text.slice(0, mid) + "...";
+    if (fits()) low = mid;
+    else high = mid - 1;
+  }
+  element.textContent = text.slice(0, low) + "...";
+}
+
+/**
  * Gets the key label of an option: 1-9, then 0 for the tenth.
  *
  * @param {number} index - The zero-based index of the option.

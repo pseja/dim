@@ -20,6 +20,7 @@ function menuView() {
     stage,
     keyHint([
       ["1-9", "start drill"],
+      ["D", "delete", openDeleteDialog],
       ["S", "shuffle", toggleShuffle],
       ["H", "hint", () => setHint(!showHint)],
       ["T", "theme", openThemeDialog],
@@ -114,22 +115,8 @@ function drillListBox() {
       h("span", null, drill.name),
       h("span", "dim", `(${drill.questions.length} questions)`),
     ]);
-    row.style.flex = "1";
     row.onclick = () => startDrill(drill.questions, drill.name);
-
-    const deleteButton = button("del", () => {
-      if (confirm(`Delete "${drill.name}"?`)) {
-        drills.splice(i, 1);
-        saveDrills(drills);
-        render();
-      }
-    });
-    deleteButton.style.margin = "0";
-
-    const wrapper = h("div");
-    wrapper.style.cssText = "display:flex;align-items:center;gap:8px";
-    wrapper.append(row, deleteButton);
-    box.appendChild(wrapper);
+    box.appendChild(row);
   });
 
   box.appendChild(enabledOptionsLine());

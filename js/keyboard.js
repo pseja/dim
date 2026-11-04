@@ -80,6 +80,8 @@ function menuKey(event) {
   if (digit >= 0 && drills[digit]) {
     event.preventDefault();
     startDrill(drills[digit].questions, drills[digit].name);
+  } else if (key.toLowerCase() === "d") {
+    openDeleteDialog();
   } else if (key.toLowerCase() === "s") {
     toggleShuffle();
   } else if (key.toLowerCase() === "h") {
