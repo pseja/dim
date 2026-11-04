@@ -38,6 +38,8 @@ No build step, no dependencies, no server: plain HTML, CSS, and JavaScript. Chec
 
 Open [`index.html`](index.html) in a browser or at <https://pseja.github.io/dim>.
 
+The first time you open it, an "Example Drill" with two questions is there to try. Delete it with `D` when you no longer need it.
+
 ### Importing a drill
 
 Drop a JSON file onto the import box, click it to browse, or paste the text into the text area. Each question has a `question`, a list of `correct` answers (at least one), and a list of `wrong` answers (can be empty):

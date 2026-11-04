@@ -72,13 +72,12 @@ function importBox() {
     '[{ "question": "What is A?", "correct": ["A1","A2"], "wrong": ["X1","X2"] }]';
 
   const nameInput = h("input");
-  nameInput.placeholder = "drill name";
-  nameInput.value = "pasted drill";
+  nameInput.placeholder = "pasted drill";
   nameInput.style.cssText =
     "font:inherit;background:var(--bg);color:var(--fg);border:2px solid var(--line);padding:2px 8px;margin-right:8px";
 
   const importPasted = button("Import pasted", () =>
-    addDrill(nameInput.value || "pasted drill", textarea.value),
+    addDrill(nameInput.value.trim() || "pasted drill", textarea.value),
   );
 
   box.append(
