@@ -47,7 +47,7 @@ document.addEventListener("keydown", (event) => {
   )
     return;
 
-  if (themeDialog) return themeKey(event);
+  if (activeDialog) return dialogKey(event);
   if (event.key.toLowerCase() === "t" && view !== "drill") {
     event.preventDefault();
     return openThemeDialog();
